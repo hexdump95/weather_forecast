@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/temp_today.dart';
+import '../screens/today_forecast.dart';
 
 class CurrentWeather extends StatefulWidget {
   @override
@@ -32,7 +33,7 @@ class _CurrentWeatherState extends State<CurrentWeather> {
 
   void _currentWeatherInfo(BuildContext ctx) {
     Navigator.of(ctx).pushNamed(
-      '/today-forecast',
+      TodayForecast.route,
     );
   }
 
