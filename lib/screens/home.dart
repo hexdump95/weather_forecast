@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/current_weather.dart';
+
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -13,33 +15,7 @@ class Home extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.symmetric(vertical: 10),
-            child: Column(
-              children: [
-                Icon(
-                  Icons.wb_sunny,
-                  size: 40,
-                  color: Colors.yellow[700],
-                ),
-                Column(
-                  children: [
-                    Text(
-                      '25 °C',
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
-                    ),
-                    Text(
-                      '22°C',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+            child: CurrentWeather(),
           ),
           Container(
             height: 350,
