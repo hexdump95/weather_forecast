@@ -2,6 +2,7 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:flutter/material.dart';
 
 import './common/theme.dart';
+import './screens/error_page.dart';
 import './screens/home.dart';
 
 void main() =>
@@ -16,6 +17,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => Home(),
       },
+      onUnknownRoute: (settings) =>
+          MaterialPageRoute(builder: (context) => ErrorPage()),
     );
   }
 }
