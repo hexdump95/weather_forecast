@@ -30,44 +30,53 @@ class _CurrentWeatherState extends State<CurrentWeather> {
     futureWeather = fetchWeather();
   }
 
+  void _currentWeatherInfo(BuildContext ctx) {
+    Navigator.of(ctx).pushNamed(
+      '/today-forecast',
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Icon(
-          Icons.wb_sunny,
-          size: 40,
-          color: Colors.yellow[700],
-        ),
-        FutureBuilder<TempToday>(
-          future: futureWeather,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return Column(
-                children: [
-                  Text(
-                    'T: ${snapshot.data.temp.toString()}°C',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
+    return GestureDetector(
+      onTap: () => _currentWeatherInfo(context),
+      child: Column(
+        children: [
+          Icon(
+            Icons.wb_sunny,
+            size: 40,
+            color: Colors.yellow[700],
+          ),
+          FutureBuilder<TempToday>(
+            future: futureWeather,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Column(
+                  children: [
+                    Text(
+                      'T: ${snapshot.data.temp.toString()}°C',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                  Text(
-                    'ST: ${snapshot.data.tempFeels.toString()}°C',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.grey,
+                    Text(
+                      'ST: ${snapshot.data.tempFeels.toString()}°C',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.grey,
+                      ),
                     ),
-                  ),
-                ],
-              );
-            } else if (snapshot.hasError) {
-              return Text("${snapshot.error}");
-            }
-            return CircularProgressIndicator();
-          },
-        )
-      ],
+                  ],
+                );
+              } else if (snapshot.hasError) {
+                return Text("${snapshot.error}");
+              }
+              return CircularProgressIndicator();
+            },
+          )
+        ],
+      ),
     );
   }
 }
