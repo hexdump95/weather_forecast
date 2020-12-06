@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:weather_forecast/common/theme.dart';
 
+import './screens/home.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -9,11 +11,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Weather Forecast',
       theme: appTheme,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Weather App'),
-        ),
-      ),
+      routes: {
+        '/': (context) => Home(),
+      },
     );
   }
 }
