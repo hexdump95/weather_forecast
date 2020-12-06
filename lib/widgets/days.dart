@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 
 import '../models/temp_day.dart';
 import '../models/temp_day_list.dart';
+import './row_temp.dart';
 
 class Days extends StatefulWidget {
   @override
@@ -71,18 +72,8 @@ class _DaysState extends State<Days> {
                               ),
                             ),
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const SizedBox(height: 12),
-                              Text(
-                                  '${snapshot.data[index].tempMax.toString()} °C MAX'),
-                              const SizedBox(height: 5),
-                              Text(
-                                  '${snapshot.data[index].tempMin.toString()} °C MIN'),
-                              const SizedBox(height: 12),
-                            ],
-                          ),
+                          RowTemp(snapshot.data[index].tempMax,
+                              snapshot.data[index].tempMin),
                         ],
                       );
                     },
