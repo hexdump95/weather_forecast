@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_forecast/widgets/bar.dart';
 
 class RowTemp extends StatelessWidget {
   final num tempMax;
@@ -10,8 +11,10 @@ class RowTemp extends StatelessWidget {
     return Row(
       children: [
         const SizedBox(width: 10),
+        Bar(temp),
+        const SizedBox(width: 10),
         Text(
-          '${temp.toString()} °C $text',
+          '${temp.toStringAsFixed(1)} °C $text',
           style: Theme.of(context).textTheme.bodyText2,
         ),
       ],
