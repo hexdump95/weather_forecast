@@ -1,9 +1,11 @@
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:flutter/material.dart';
-import 'package:weather_forecast/common/theme.dart';
 
+import './common/theme.dart';
 import './screens/home.dart';
 
-void main() => runApp(MyApp());
+void main() =>
+    initializeDateFormatting('es_AR', null).then((_) => runApp(MyApp()));
 
 class MyApp extends StatelessWidget {
   @override

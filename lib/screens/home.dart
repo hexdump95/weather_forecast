@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/current_weather.dart';
+import '../widgets/days.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -17,9 +18,7 @@ class Home extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: CurrentWeather(),
           ),
-          Container(
-            height: 350,
-          )
+          Days(),
         ],
       ),
     );
